@@ -1,9 +1,10 @@
 
 import React from 'react';
 import './App.css';
-import Home from './pages/Home';
 import Router from './route/Router';
-
+import { Amplify } from 'aws-amplify';
+import awsconfig from './aws-exports';
+Amplify.configure(awsconfig);
 
 function App() {
   return (

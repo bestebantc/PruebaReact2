@@ -1,0 +1,30 @@
+.loginPage {
+    width: 100%;
+    height: 86.9vh;
+}
+.loginContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loginDisplay {
+    padding: 2%;
+    background-color: #414bb2;
+    border-radius: 15px;
+    width: 20%;
+}
+.loginButtons{
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-around;
+    font-size: large;
+}
+.loginLabel {
+    color: white;
+    font-size: larger;
+}
+.loginInput {
+    width: 100%;
+}

@@ -1,0 +1,20 @@
+.navContainer {
+    background-color: #414bb2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.navOptions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    align-items: center;
+}
+.navTitle{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2%;
+}
