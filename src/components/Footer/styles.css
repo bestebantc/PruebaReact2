@@ -1,0 +1,28 @@
+.footerContainer {
+    background-color: #414bb2;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.footerContact, .footerRights {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.footerTitle {
+    color: white;
+    font-family: fantasy;
+    font-size: x-large;
+}
+.footerText {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT';
+}
+.footerRights {
+    color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT';
+    font-size: larger;
+}
