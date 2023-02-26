@@ -14,7 +14,7 @@ export const LoggedNavBar = () => {
     return(
         <div className="navContainer">
             <div className="navTitle">
-                <NavLink to={'/home'} style={{color: 'white', textDecoration: 'none', fontSize: 58, fontFamily: 'fantasy'}}> </NavLink>
+                <NavLink to={'/home'} style={{color: 'white', textDecoration: 'none', fontSize: 58, fontFamily: 'fantasy'}}> MAKAIRANGER</NavLink>
                 <NavLink to={'/home'} style={{color: 'white', textDecoration: 'none', paddingLeft: '2%'}}>
                     <img src={require('../../assets/images/LogoPrueba2.0.png')} alt=""/>
                 </NavLink>
