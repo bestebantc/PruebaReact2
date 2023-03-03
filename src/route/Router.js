@@ -8,6 +8,8 @@ import SignUp from "../pages/SignUp";
 import CodeVerification from "../pages/CodeVerification";
 import LoggedHome from "../pages/LoggedHome";
 import ErrorPage from "../pages/ErrorPage";
+import Test from "../pages/Test";
+
 
 import { Auth, Hub } from 'aws-amplify';
 
@@ -19,6 +21,7 @@ const Router = () => {
         setLoading(true)
         try{
             const authUser = await Auth.currentAuthenticatedUser({bypassCache: true})
+            console.log(authUser)
             //console.log('authUser',authUser.attributes)
             //console.log('authUser',authUser)
             setUser(authUser)
@@ -27,6 +30,7 @@ const Router = () => {
             //console.log('log 3')
             setUser(undefined);
         }
+        console.log('user',user)
         setLoading(false)
     };
 
@@ -63,12 +67,14 @@ const Router = () => {
                 </Routes>
             ) : (
                 <Routes>
+
                     <Route path="/" element={<Home/>}/>
                     <Route path="team" element={<OurTeam/>}/>
                     <Route path="gallery" element={<Gallery/>}/>
                     <Route path="login" element={<Login/>}/>
                     <Route path="signup" element={<SignUp/>}/>
                     <Route path="codev" element={<CodeVerification/>}/>
+                    <Route path="Tesst" element={<Test/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
                 </Routes> 
             )}

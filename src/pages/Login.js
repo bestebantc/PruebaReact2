@@ -29,13 +29,13 @@ const Login = () => {
         setLoading(true);
         try {
             const response = await Auth.signIn(email,password);
-            //console.log('SignUp Response:',response)
+            console.log('SignUp Response:',response)
             //loadId(response.attributes.sub);
+            navigate('/home')
         } catch (err){
             console.log('Oops', err.message)
         }
         setLoading(false);
-        navigate('/home')
     }
 
     return(
