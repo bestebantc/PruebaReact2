@@ -18,10 +18,24 @@
 }
 .spot {
     width: 100%;
+    text-align: center;
 }
 .text {
     font-size: x-large;
+    font-family: 'Courier New', Courier, monospace;
 }
 .title {
+    text-align: center;
+    margin: 0 auto;
     font-size: xx-large;
+    font-family: Impact;
+    font-size: 40px;
+    letter-spacing: 0.2px;
+    word-spacing: 4px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: none solid rgb(68, 68, 68);
+    font-style: normal;
+    font-variant: small-caps;
+    text-transform: capitalize;
 }

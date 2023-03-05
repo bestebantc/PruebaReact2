@@ -8,7 +8,7 @@ const Gallery = () => {
             <div className="galleryContainer">
                 <div className="galleryContainer2">
                     <div className="galleryHeader">
-                        <div className="galleryIcon">icon</div>
+                        <div className="galleryIcon"><img src={require('../assets/images/galeria.png')} width='40%' alt=""/></div>
                         <div className="galleryDescription">
                             <div className="title">Gallery</div>
                             <div className="text">En este apartado se expone cómo se d esarrolla el proyecto, en todas sus etapas
