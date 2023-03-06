@@ -1,37 +1,44 @@
 import { LoggedNavBar } from "../components/LoggedNavBar";
 import '../styles/Logged.css'
-import { API } from "aws-amplify";
+import { API, graphqlOperation } from "aws-amplify";
+import { listObjetos } from "../graphql/queries";
+import { useEffect, useState } from "react";
 
 const LoggedHome = () => {
-    const getitem = async () => {
-        const apiName = 'apiprueba2';
-        const path = '/api-prueba2';
-        const config = {
-          headers: {
-            "Content-type" : "application/json",
-            "Access-Control-Allow-Origin": "*", 
-            "Access-Control-Allow-Credentials": "true",
-          },
-          body: {'string': "Hola"},
-        }
+    const[objeto, setdeobjeto] = useState([]);
+
+    useEffect(()=>{
+      getobjeto();
+    }, []);
+
+
+    const getobjeto = async () => {
         try{
-          const response = await API.post(apiName,path,config)
-          console.log(response)
+
+          const objetData = await API.graphql(graphqlOperation(listObjetos));
+          const objetcList = objetData.data.listObjetos.items;
+          console.log('response', objetcList);
+          setdeobjeto(objetcList)
         
         }catch(e){
-          console.log('error general:',e)
+          console.log('error general:',e);
+          console.log(listObjetos)
         }
       }
+
     return(
         <div className="page">
             <LoggedNavBar/>
             <div className="loggedContainer">
                 <div className="loggedContainer2">
                     <div className="title">Bienvenido!</div>
-                    <div className="loggedContent" onClick={getitem}>
-                    
-                        Cosas que pongamos acá jajaja
-                        
+                    <div className="loggedContent" onClick={getobjeto}>
+                        PayLoadRecibida:
+                        {objeto.map(objetoa => {
+                          const payload = atob(objetoa.payload_raw);
+                          return <div> {payload}</div>
+                        })}
+
                     </div>
                 </div>
             </div>

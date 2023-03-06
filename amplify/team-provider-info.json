@@ -18,6 +18,9 @@
       },
       "function": {
         "apiprueba3": {}
+      },
+      "api": {
+        "apigraphql": {}
       }
     }
   }
