@@ -7,6 +7,8 @@ export const getObjeto = /* GraphQL */ `
       id
       payload_raw
       time
+      createdAt
+      updatedAt
     }
   }
 `;
