@@ -1,43 +1,43 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const createObjeto = /* GraphQL */ `
-  mutation CreateObjeto(
-    $input: CreateObjetoInput!
-    $condition: ModelObjetoConditionInput
+export const createTodo = /* GraphQL */ `
+  mutation CreateTodo(
+    $input: CreateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    createObjeto(input: $input, condition: $condition) {
+    createTodo(input: $input, condition: $condition) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }
   }
 `;
-export const updateObjeto = /* GraphQL */ `
-  mutation UpdateObjeto(
-    $input: UpdateObjetoInput!
-    $condition: ModelObjetoConditionInput
+export const updateTodo = /* GraphQL */ `
+  mutation UpdateTodo(
+    $input: UpdateTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    updateObjeto(input: $input, condition: $condition) {
+    updateTodo(input: $input, condition: $condition) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }
   }
 `;
-export const deleteObjeto = /* GraphQL */ `
-  mutation DeleteObjeto(
-    $input: DeleteObjetoInput!
-    $condition: ModelObjetoConditionInput
+export const deleteTodo = /* GraphQL */ `
+  mutation DeleteTodo(
+    $input: DeleteTodoInput!
+    $condition: ModelTodoConditionInput
   ) {
-    deleteObjeto(input: $input, condition: $condition) {
+    deleteTodo(input: $input, condition: $condition) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }

@@ -1,13 +1,15 @@
 {
   "api": {
-    "apigraphql": {
+    "apirpruebagraphql": {
       "dependsOn": [],
       "output": {
         "authConfig": {
           "additionalAuthenticationProviders": [],
           "defaultAuthentication": {
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDate": "2023-06-19T02:37:45.135Z",
+              "apiKeyExpirationDays": 100,
+              "description": "API key "
             },
             "authenticationType": "API_KEY"
           }
@@ -45,5 +47,29 @@
       "service": "Cognito"
     }
   },
-  "function": {}
+  "function": {
+    "sensorviewupdate": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_sensorviewupdate_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sensorviewupdate"
+        }
+      ]
+    },
+    "AMPLIFY_function_sensorviewupdate_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "sensorviewupdate"
+        }
+      ]
+    }
+  }
 }

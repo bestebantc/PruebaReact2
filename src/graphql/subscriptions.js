@@ -1,34 +1,34 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
-export const onCreateObjeto = /* GraphQL */ `
-  subscription OnCreateObjeto($filter: ModelSubscriptionObjetoFilterInput) {
-    onCreateObjeto(filter: $filter) {
+export const onCreateTodo = /* GraphQL */ `
+  subscription OnCreateTodo($filter: ModelSubscriptionTodoFilterInput) {
+    onCreateTodo(filter: $filter) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }
   }
 `;
-export const onUpdateObjeto = /* GraphQL */ `
-  subscription OnUpdateObjeto($filter: ModelSubscriptionObjetoFilterInput) {
-    onUpdateObjeto(filter: $filter) {
+export const onUpdateTodo = /* GraphQL */ `
+  subscription OnUpdateTodo($filter: ModelSubscriptionTodoFilterInput) {
+    onUpdateTodo(filter: $filter) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }
   }
 `;
-export const onDeleteObjeto = /* GraphQL */ `
-  subscription OnDeleteObjeto($filter: ModelSubscriptionObjetoFilterInput) {
-    onDeleteObjeto(filter: $filter) {
+export const onDeleteTodo = /* GraphQL */ `
+  subscription OnDeleteTodo($filter: ModelSubscriptionTodoFilterInput) {
+    onDeleteTodo(filter: $filter) {
       id
-      payload_raw
-      time
+      status
+      distance
       createdAt
       updatedAt
     }

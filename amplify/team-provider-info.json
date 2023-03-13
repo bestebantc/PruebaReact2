@@ -17,10 +17,14 @@
         "try4c926b51": {}
       },
       "function": {
-        "apiprueba3": {}
+        "apiprueba3": {},
+        "sensorviewupdate": {
+          "deploymentBucketName": "amplify-amplify4c8b2a4837154-staging-181631-deployment",
+          "s3Key": "amplify-builds/sensorviewupdate-4e472b365852774b7278-build.zip"
+        }
       },
       "api": {
-        "apigraphql": {}
+        "apirpruebagraphql": {}
       }
     }
   }
