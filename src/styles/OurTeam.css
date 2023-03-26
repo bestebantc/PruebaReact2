@@ -35,6 +35,17 @@
 }
 .teamIcon {
     padding: 0% 1%;
+    width: 150px;
+    height: 150px;
+    margin: auto;
+    text-align: center;
+}
+
+.teamIcon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
+    object-fit: cover;
 }
 .teamDescription {
     padding: 1% 1%;
