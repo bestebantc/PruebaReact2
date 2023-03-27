@@ -1,7 +1,14 @@
 .loggedContainer{
     height: 100%;
+    background-color: black;
 }
 .loggedContainer2 {
     height: 100%;
     padding: 1% 3%;
 }
+.loggedContent {
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;  
+  }
