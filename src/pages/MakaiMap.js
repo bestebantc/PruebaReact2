@@ -1,34 +1,51 @@
-import { LoggedNavBar } from "../components/LoggedNavBar";
-import '../styles/Logged.css'
-import { API, graphqlOperation } from "aws-amplify";
-import { useEffect, useState, React } from "react";
-import * as subscriptions from '../graphql/subscriptions';
-import {listTodos} from '../graphql/queries';
-import GaugeChart from 'react-gauge-chart'
-import { color } from 'd3-color';
-import { interpolateRgb } from 'd3-interpolate';
-import ReactDOM from 'react-dom';
-import LiquidFillGauge from 'react-liquid-gauge';
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
+        import { LoggedNavBar } from "../components/LoggedNavBar";
+        import "../styles/Logged.css";
+        import { useEffect, useState, React, useRef} from "react";
+        import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
-import {
-    LineChart,
-    Line,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend
-  } from "recharts";
+        const MakaiMap = () => {
+            const center = { lat: -34.397, lng: 150.644 };
+            const zoom = 4; 
+            function MyMapComponent({
+                center,
+                zoom,
+            }) {
+                const ref = useRef();
+            
+                useEffect(() => {
+                new window.google.maps.Map(ref.current, {
+                    center,
+                    zoom,
+                });
+                });
+            
+                return <div ref={ref} id="map" />;
+            }
 
-const MakaiMap = () => {
-    return(
-        <div className="page">
-            <LoggedNavBar/>
-            My Makai Map
-        </div>
-    )
-}
+            const Map = () => {};
+            const ref = useRef(null);
+            const [map, setMap] = useState();
 
-export default MakaiMap;
+            useEffect(() => {
+            if (ref.current && !map) {
+                setMap(new window.google.maps.Map(ref.current, {}));
+            }
+            }, [ref, map]);
+            
+            const render = (status) => {
+                return <h1>{status}</h1>;
+            };
+
+            return (    
+                <div className="page">
+                <LoggedNavBar />
+                <Wrapper apiKey={'AIzaSyDZJ-g6n17oxIbVM4B8a5MwI2664VChozA'} render={render}>
+                    <MyMapComponent center={center} zoom={zoom} />
+                </Wrapper>
+                My Makai Map
+                <></>
+                </div>
+            );
+        };
+
+        export default MakaiMap;
