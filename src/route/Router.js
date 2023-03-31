@@ -36,15 +36,17 @@ const Router = () => {
     };
 
     useEffect(()=>{
+        if(user !== undefined){
+            checkUser();
+        }
         //console.log('useEffect1')
-        checkUser();
     }, []);
 
     useEffect(() => {
         const listener = (data) => {
             //console.log('from navigation')
             //console.log(data)
-            if(data.payload.event == 'signIn' || data.payload.event == 'signOut'){
+            if(data.payload.event === 'signIn' || data.payload.event === 'signOut'){
                 checkUser();
             }
         }
@@ -53,7 +55,7 @@ const Router = () => {
     }, []);
 
 
-    if (loading == true){
+    if (loading === true){
         return(
             <div>Loading papu</div>
         );

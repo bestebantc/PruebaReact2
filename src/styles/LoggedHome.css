@@ -1,0 +1,14 @@
+.graphsContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding-top: 25px;
+}
+.graphs{
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
