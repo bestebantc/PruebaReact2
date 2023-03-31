@@ -11,6 +11,8 @@ import ReactDOM from 'react-dom';
 import LiquidFillGauge from 'react-liquid-gauge';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
+import { Card, CardContent, CardActions } from "@mui/material";
+
 
 import {
     LineChart,
@@ -41,7 +43,7 @@ const LoggedHome = () => {
   const status = {
       "status": ""
   }
-  const radius = 200;
+  const radius = 150;
   const interpolate = interpolateRgb('#6495ed','#dc143c');
   const fillColor = interpolate(50 / 100);
 
@@ -67,43 +69,43 @@ const LoggedHome = () => {
   ];
   const datosgraficaprueba = [
     {
-      name: "Page A",
+      name: "-",
       dist: sensor1[0],
       pv: sensor1[1],
       amt: 2400
     },
     {
-      name: "Page B",
+      name: "-",
       dist: sensor1[1],
       pv: sensor1[1],
       amt: 2210
     },
     {
-      name: "Page C",
+      name: "-",
       dist: sensor1[2],
       pv: sensor1[1],
       amt: 2290
     },
     {
-      name: "Page D",
+      name: "-",
       dist: sensor1[3],
       pv: sensor1[1],
       amt: 2000
     },
     {
-      name: "Page E",
+      name: "-",
       dist: sensor1[4],
       pv: sensor1[1],
       amt: 2181
     },
     {
-      name: "Page F",
+      name: "-",
       dist: sensor1[5],
       pv: sensor1[1],
       amt: 2500
     },
     {
-      name: "Page G",
+      name: "-",
       dist: sensor1[6],
       pv: sensor1[1],
       amt: 2100
@@ -168,101 +170,124 @@ const LoggedHome = () => {
   return(
     <div className="page">
       <LoggedNavBar/>
-      <div className="loggedContainer">
+      <div style={{width: '100%'}}>
         <div className="graphsContainer">
           <div className="graphs">
-            <LineChart
-              width={500}
-              height={300}
-              data={datosgraficaprueba}
-              margin={{
-                  top: 5,
-                  right: 30,
-                  left: 20,
-                  bottom: 5
-              }}
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey="name" />
-              <YAxis />
-              <Tooltip />
-              <Legend />
-              {/* <Line
-                type="monotone"
-                dataKey="pv"
-                stroke="#8884d8"
-                activeDot={{ r: 8 }}
-              /> */}
-              <Line type="monotone" dataKey="dist" stroke="#82ca9d" />
-            </LineChart>
-            <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/>
-            <button onClick={changeSensor1Value}>button sensor1</button>
+            <Card className="cardStyle">
+              <CardContent>
+                <LineChart
+                    width={500}
+                    height={300}
+                    data={datosgraficaprueba}
+                    margin={{
+                        top: 5,
+                        right: 80,
+                        left: 0,
+                        bottom: 5
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    {/* <Line
+                      type="monotone"
+                      dataKey="pv"
+                      stroke="#8884d8"
+                      activeDot={{ r: 8 }}
+                    /> */}
+                    <Line type="monotone" dataKey="dist" stroke="#82ca9d" />
+                  </LineChart>
+              </CardContent>
+              <CardActions>
+                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/>
+                  <button onClick={changeSensor1Value}>button sensor1</button>
+                </div>
+              </CardActions>
+            </Card>
+          </div>
+          <div className="graphs">
+            <Card className="cardStyle">
+              <CardContent>
+                <GaugeChart id="gauge-chart2" 
+                  style={{"width": '100%'}}
+                  nrOfLevels={20} 
+                  percent={sensor2} 
+                  textColor="black"
+                  needleColor="gray"
+                />
+              </CardContent>
+              <CardActions>
+                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber2(e.target.value)}}/>
+                  <button onClick={changeSensor2Value} style={{textAlign: 'center'}}>button sensor2</button>
+                </div>
+              </CardActions>
+            </Card>
           </div>    
           <div className="graphs">
-            <GaugeChart id="gauge-chart2" 
-              style={{"width": '100%'}}
-              nrOfLevels={20} 
-              percent={sensor2} 
-              textColor="black"
-              needleColor="gray"
-            />
-            <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber2(e.target.value)}}/>
-            <button onClick={changeSensor2Value}>button sensor2</button>
-          </div>    
-          <div className="graphs">
-            <LiquidFillGauge
-            style={{ margin: '0 auto' }}
-            width={radius * 2}
-            height={radius * 2}
-            value={sensor3}
-            percent="%"
-            textSize={1}
-            textOffsetX={0}
-            textOffsetY={0}
-            textRenderer={(props) => {
-                const value = Math.round(props.value);
-                const radius = Math.min(props.height / 2, props.width / 2);
-                const textPixels = (props.textSize * radius / 2);
-                const valueStyle = {
-                    fontSize: textPixels
-                };
-                const percentStyle = {
-                    fontSize: textPixels * 0.6
-                };
+            <Card className="cardStyle">
+              <CardContent>
+                <LiquidFillGauge
+                style={{ margin: '0 auto' }}
+                width={radius * 2}
+                height={radius * 2}
+                value={Number(sensor3)}
+                percent="%"
+                textSize={1}
+                textOffsetX={0}
+                textOffsetY={0}
+                textRenderer={(props) => {
+                    const value = Math.round(props.value);
+                    const radius = Math.min(props.height / 2, props.width / 2);
+                    const textPixels = (props.textSize * radius / 2);
+                    const valueStyle = {
+                        fontSize: textPixels
+                    };
+                    const percentStyle = {
+                        fontSize: textPixels * 0.6
+                    };
 
-                return (
-                    <tspan>
-                        <tspan className="value" style={valueStyle}>{value}</tspan>
-                        <tspan style={percentStyle}>{props.percent}</tspan>
-                    </tspan>
-                );
-            }}
-            riseAnimation
-            waveAnimation
-            waveFrequency={2}
-            waveAmplitude={1}
-            gradient
-            gradientStops={gradientStops}
-            circleStyle={{
-                fill: fillColor
-            }}
-            waveStyle={{
-                fill: fillColor
-            }}
-            textStyle={{
-                fill: color('#444').toString(),
-                fontFamily: 'Arial'
-            }}
-            waveTextStyle={{
-                fill: color('#fff').toString(),
-                fontFamily: 'Arial'
-            }}
-            />
-            <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber3(e.target.value)}}/>
-            <button onClick={changeSensor3Value}>button sensor3</button>
+                    return (
+                        <tspan>
+                            <tspan className="value" style={valueStyle}>{value}</tspan>
+                            <tspan style={percentStyle}>{props.percent}</tspan>
+                        </tspan>
+                    );
+                }}
+                riseAnimation
+                waveAnimation
+                waveFrequency={2}
+                waveAmplitude={1}
+                gradient
+                gradientStops={gradientStops}
+                circleStyle={{
+                    fill: fillColor
+                }}
+                waveStyle={{
+                    fill: fillColor
+                }}
+                textStyle={{
+                    fill: color('#444').toString(),
+                    fontFamily: 'Arial'
+                }}
+                waveTextStyle={{
+                    fill: color('#fff').toString(),
+                    fontFamily: 'Arial'
+                }}
+                />
+              </CardContent>
+              <CardActions>
+                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber3(e.target.value)}}/>
+                  <button onClick={changeSensor3Value}>button sensor3</button>
+                </div>
+              </CardActions>
+            </Card>
           </div>    
         </div>
-      <div>hola</div>
 
       {/* <div className="loggedContent" >
         <Stack sx={{ width: '100%' }} spacing={2}>

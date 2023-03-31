@@ -8,7 +8,9 @@
     padding-top: 25px;
 }
 .graphs{
-    padding: 30px;
-    border-radius: 10px;
-    border: 2px solid black;
+    margin: 2%;
+}
+.cardStyle {
+    width: 500px;
+    height: 400px;
 }
