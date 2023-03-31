@@ -6,10 +6,11 @@ import Gallery from "../pages/Gallery";
 import Login from "../pages/Login";
 import SignUp from "../pages/SignUp";
 import CodeVerification from "../pages/CodeVerification";
-import LoggedHome from "../pages/LoggedHome";
 import ErrorPage from "../pages/ErrorPage";
 import Test from "../pages/Test";
 
+import LoggedHome from "../pages/LoggedHome";
+import MakaiMap from "../pages/MakaiMap";
 
 import { Auth, Hub } from 'aws-amplify';
 
@@ -63,6 +64,7 @@ const Router = () => {
             {user ? (
                 <Routes>
                     <Route path="/home" element={<LoggedHome/>}/>
+                    <Route path="/map" element={<MakaiMap/>}/>
                     <Route path="*" element={<ErrorPage/>}/>
                 </Routes>
             ) : (

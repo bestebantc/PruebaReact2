@@ -22,7 +22,7 @@ import {
     Legend
   } from "recharts";
 
-const LoggedHome = () => {
+const MakaiMap = () => {
     
     console.log("distancia",data.distance)
     return(
@@ -33,4 +33,4 @@ const LoggedHome = () => {
     )
 }
 
-export default LoggedHome;
+export default MakaiMap;

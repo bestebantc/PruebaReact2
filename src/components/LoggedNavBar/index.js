@@ -20,6 +20,7 @@ export const LoggedNavBar = () => {
                 </NavLink>
             </div>
             <div className="navOptions">
+                <NavLink to={'/map'} style={{color: 'white', textDecoration: 'none', fontSize: 30, fontFamily: 'fantasy', cursor: 'pointer'}}>MAKAI MAP</NavLink>
                 <div style={{color: 'white', textDecoration: 'none', fontSize: 30, fontFamily: 'fantasy', cursor: 'pointer'}} onClick={logout}>Logout</div>
             </div>
         </div>
