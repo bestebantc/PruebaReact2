@@ -22,7 +22,6 @@ import {
     Legend
   } from "recharts";
 
-  
 const LoggedHome = () => {
   
   const radius = 200;
