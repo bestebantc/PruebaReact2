@@ -23,8 +23,6 @@ import {
   } from "recharts";
 
 const MakaiMap = () => {
-    
-    console.log("distancia",data.distance)
     return(
         <div className="page">
             <LoggedNavBar/>
