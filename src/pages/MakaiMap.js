@@ -4,8 +4,8 @@
         import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
         const MakaiMap = () => {
-            const center = { lat: -34.397, lng: 150.644 };
-            const zoom = 4; 
+            const center = { lat: 4.68360892669428, lng: -74.04250725972547 };
+            const zoom = 16; 
             function MyMapComponent({
                 center,
                 zoom,
@@ -13,15 +13,19 @@
                 const ref = useRef();
             
                 useEffect(() => {
-                new window.google.maps.Map(ref.current, {
+                const map = new window.google.maps.Map(ref.current, {
                     center,
                     zoom,
                 });
+                const marker =new window.google.maps.Marker({
+                    position: center,
+                    map: map,
+                  });
                 });
-            
+                
                 return <div ref={ref} id="map" />;
             }
-
+            
             const Map = () => {};
             const ref = useRef(null);
             const [map, setMap] = useState();
