@@ -40,6 +40,7 @@ const LoggedHome = () => {
     6,
     7,
   ])
+
   const status = {
       "status": ""
   }
@@ -111,47 +112,51 @@ const LoggedHome = () => {
       amt: 2100
     }
   ];    
-    // useEffect(()=>{
-    //     listSensorData();
+    useEffect(()=>{
+        listSensorData();
 
-    // },[])
-    // const listSensorData = async () => {
-    //     try{
-    //         const response = await API.graphql(graphqlOperation(listTodos));
-    //         const todoList = response.data.listTodos.items;
-    //         console.log('list data:', todoList)
-    //         setData(response.data.listTodos.items)
-    //     }catch(e){
-    //         console.log('error:',e)
-    // }}
+    },[])
+    const listSensorData = async () => {
+        try{
+            const response = await API.graphql(graphqlOperation(listTodos));
+            const todoList = response.data.listTodos.items;
+            console.log('list data:', todoList)
+            setData(response.data.listTodos.items)
+        }catch(e){
+            console.log('error:',e)
+    }}
 
-    // useEffect(() => {
+    useEffect(() => {
 
-    //     const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
-    //         next: (response) => {
-    //             console.log(response.value)
-    //             console.log("se recibieron datos")
-
-    //                 setData((prevState) => {
-    //                 const newArray = Array.from(prevState);  // CREATING A NEW ARRAY OBJECT
-    //                 newArray.push({
-    //                     distance: response.value.data.onCreateTodo.distance,
-    //                     status: response.value.data.onCreateTodo.status
-    //                 });
-    //                 return newArray;  
-    //             });
+        const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
+            next: (response) => {
+                console.log(response.value)
+                console.log("se recibieron datos")
+                  setSensor2(response.value.data.onCreateTodo.s1/100) //VELOCIDAD 0-100 s1
+                  setSensor3(response.value.data.onCreateTodo.s2) //PORCENTAJE BATERIA
+                  setSensor1((prevState) => {
+                    const newArray = Array.from(prevState);  // CREATING A NEW ARRAY OBJECT
+                    newArray.shift();
+                    newArray.push(response.value.data.onCreateTodo.s3);
+                    return newArray;  
+                  });
+                  // s3: response.value.data.onCreateTodo.s3,
+                  // s4: response.value.data.onCreateTodo.s4,
+                  // s5: response.value.data.onCreateTodo.s5,
+                    
+                // });
               
-    //         },
-    //         error: (error) => {
-    //           console.log('error on sensor subscription', error);
-    //         }
-    //     });
-    //     return () => {
-    //         console.log('terminating subscription to sensor');
-    //         subscriber.unsubscribe();
-    //     }
-    // }, [data]);
-    
+            },
+            error: (error) => {
+              console.log('error on sensor subscription', error);
+            }
+        });
+        return () => {
+            console.log('terminating subscription to sensor');
+            subscriber.unsubscribe();
+        }
+    }, [data]);
+
   console.log("distancia",data.distance)
   const changeSensor1Value = () => {
     setSensor1((prevState) => {
@@ -202,8 +207,8 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/>
-                  <button onClick={changeSensor1Value}>button sensor1</button>
+                  {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
+                  {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
                 </div>
               </CardActions>
             </Card>
@@ -221,8 +226,8 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber2(e.target.value)}}/>
-                  <button onClick={changeSensor2Value} style={{textAlign: 'center'}}>button sensor2</button>
+                  {/* <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber2(e.target.value)}}/> */}
+                  {/* <button onClick={changeSensor2Value} style={{textAlign: 'center'}}>button sensor2</button> */}
                 </div>
               </CardActions>
             </Card>
@@ -281,8 +286,8 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber3(e.target.value)}}/>
-                  <button onClick={changeSensor3Value}>button sensor3</button>
+                  {/* <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber3(e.target.value)}}/> */}
+                  {/* <button onClick={changeSensor3Value}>button sensor3</button> */}
                 </div>
               </CardActions>
             </Card>
