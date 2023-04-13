@@ -1,6 +1,5 @@
 .galleryContainer {
     background-color: #e6e6e6;
-    height: 100%;
     margin: 2% 2%;
 }
 .galleryContainer2 {
@@ -28,4 +27,5 @@
     margin: 1%;
     border: #ffffff solid 3px;
     border-radius: 10px;
+    width: 400px;
 }

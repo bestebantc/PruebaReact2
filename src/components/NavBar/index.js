@@ -8,7 +8,7 @@ export const NavBar = () => {
             <div className="navTitle">
                 {/* <NavLink to={'/'} style={{color: 'white', textDecoration: 'none', fontSize: 58, fontFamily: 'fantasy'}}>MAKAI RANGER</NavLink> */}
                 <NavLink to={'/'} style={{color: 'white', textDecoration: 'none', paddingLeft: '2%'}}>
-                    <img src={require('../../assets/images/Logo3.png')} width="600"/>
+                    <img src={require('../../assets/images/Logo3.png')} className="navImage"/>
                 </NavLink>
             </div>
             <div className="navOptions">

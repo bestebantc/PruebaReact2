@@ -2,19 +2,60 @@
     background-color: #414bb2;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    flex-wrap: wrap;
 }
 .navOptions {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    width: 100%;
     align-items: center;
 }
 .navTitle{
-    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
     padding-left: 2%;
+}
+
+@media only screen and (max-width: 1980px) {
+    .navContainer {
+        justify-content: space-between;
+    }
+    .navOptions {
+        width: 600px;
+    }
+    .navTitle {
+        width: 600px;
+    }
+}
+@media only screen and (max-width: 1222px) {
+    .navContainer{
+        justify-content: center;
+    }
+    .navOptions {
+        width: 500px;
+    }
+    .navTitle {
+        width: 500px;
+        justify-content: center;
+    }
+    .navImage{
+        align-self: center;
+    }
+}
+@media only screen and (max-width: 638px) {
+    .navContainer{
+        justify-content: center;
+    }
+    .navOptions {
+        width: 90%;
+    }
+    .navTitle {
+        width: 90%;
+        justify-content: center;
+    }
+    .navImage{
+        align-self: center;
+        width: 300px;
+    }
 }

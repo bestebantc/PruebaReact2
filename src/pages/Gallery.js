@@ -16,16 +16,16 @@ const Gallery = () => {
                         </div>
                     </div>
                     <div className="galleryContent">
-                        <img alt="" src={require('../assets/images/logo.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} width="20%" className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} width="20%" className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
+                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
                     </div>
 
                 </div>

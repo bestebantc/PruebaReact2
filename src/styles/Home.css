@@ -2,13 +2,19 @@
     background-color: #fafafa;
 }
 .homeContainer2 {
-    margin: 0% 2%;
     background-color: white;
 }
 .home {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+}
+.homeHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 }
 .home2 {
     display: flex;
@@ -16,13 +22,11 @@
     justify-content: space-around;
     align-items: center;
 }
-.spot {
-    width: 100%;
-    text-align: center;
-}
-.text {
+.homeText {
     font-size: x-large;
     font-family: 'Courier New', Courier, monospace;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .title {
     text-align: center;
@@ -38,4 +42,30 @@
     font-style: normal;
     font-variant: small-caps;
     text-transform: capitalize;
+}
+
+@media only screen and (max-width: 1980px) {
+    .spot {
+        width: 900px;
+    }
+}
+@media only screen and (max-width: 1800px) {
+    .spot {
+        width: 800px;
+    }
+}
+@media only screen and (max-width: 1610px) {
+    .spot {
+        width: 700px;
+    }
+}
+@media only screen and (max-width: 1400px) {
+    .spot {
+        width: 1300px;
+    }
+}
+@media only screen and (max-width: 683px) {
+    .homeImage{
+        width: 90%;
+    }
 }

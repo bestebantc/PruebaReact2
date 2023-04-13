@@ -12,14 +12,14 @@ export const LoggedNavBar = () => {
     }
 
     return(
-        <div className="navContainer">
-            <div className="navTitle">
+        <div className="loggedNavContainer">
+            <div className="loggedNavTitle">
                 <NavLink to={'/home'} style={{color: 'white', textDecoration: 'none', fontSize: 58, fontFamily: 'fantasy'}}>MAKAI RANGERR</NavLink>
                 <NavLink to={'/home'} style={{color: 'white', textDecoration: 'none', paddingLeft: '2%'}}>
                     <img src={require('../../assets/images/logo.png')} alt=""/>
                 </NavLink>
             </div>
-            <div className="navOptions">
+            <div className="loggedNavOptions">
                 <NavLink to={'/map'} style={{color: 'white', textDecoration: 'none', fontSize: 30, fontFamily: 'fantasy', cursor: 'pointer'}}>MAKAI MAP</NavLink>
                 <div style={{color: 'white', textDecoration: 'none', fontSize: 30, fontFamily: 'fantasy', cursor: 'pointer'}} onClick={logout}>Logout</div>
             </div>
