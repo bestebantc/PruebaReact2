@@ -8,8 +8,11 @@ export const createTodo = /* GraphQL */ `
   ) {
     createTodo(input: $input, condition: $condition) {
       id
-      status
-      distance
+      s1
+      s2
+      s3
+      s4
+      s5
       createdAt
       updatedAt
     }
@@ -22,8 +25,11 @@ export const updateTodo = /* GraphQL */ `
   ) {
     updateTodo(input: $input, condition: $condition) {
       id
-      status
-      distance
+      s1
+      s2
+      s3
+      s4
+      s5
       createdAt
       updatedAt
     }
@@ -36,8 +42,11 @@ export const deleteTodo = /* GraphQL */ `
   ) {
     deleteTodo(input: $input, condition: $condition) {
       id
-      status
-      distance
+      s1
+      s2
+      s3
+      s4
+      s5
       createdAt
       updatedAt
     }

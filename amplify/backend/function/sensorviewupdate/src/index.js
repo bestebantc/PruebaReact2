@@ -25,12 +25,16 @@ const query = /* GraphQL */ `
   mutation CreateTodo ($input: CreateTodoInput!) {
     createTodo(input: $input) {
       id
-      distance
-      status
+      s1
+      s2
+      s3
+      s4
+      s5
       createdAt
       updatedAt
     }
   }
+  
 `;
 
 
@@ -41,8 +45,11 @@ exports.handler = async (event) => {
     
     const variables = {
         input: {
-          status: event.data.status,
-          distance: event.data.distance
+          s1: event.data.s1,
+          s2: event.data.s2,
+          s3: event.data.s3,
+          s4: event.data.s4,
+          s5: event.data.s5
         }
       };
     console.log("Variables:", variables)

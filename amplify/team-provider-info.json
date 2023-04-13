@@ -20,7 +20,7 @@
         "apiprueba3": {},
         "sensorviewupdate": {
           "deploymentBucketName": "amplify-amplify4c8b2a4837154-staging-181631-deployment",
-          "s3Key": "amplify-builds/sensorviewupdate-4d595842787a726a6c4f-build.zip"
+          "s3Key": "amplify-builds/sensorviewupdate-736a4e65764559335a56-build.zip"
         }
       },
       "api": {
