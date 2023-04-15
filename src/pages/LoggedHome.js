@@ -71,43 +71,43 @@ const LoggedHome = () => {
   const datosgraficaprueba = [
     {
       name: "-",
-      dist: sensor1[0],
+      Distancia: sensor1[0],
       pv: sensor1[1],
       amt: 2400
     },
     {
       name: "-",
-      dist: sensor1[1],
+      Distancia: sensor1[1],
       pv: sensor1[1],
       amt: 2210
     },
     {
       name: "-",
-      dist: sensor1[2],
+      Distancia: sensor1[2],
       pv: sensor1[1],
       amt: 2290
     },
     {
       name: "-",
-      dist: sensor1[3],
+      Distancia: sensor1[3],
       pv: sensor1[1],
       amt: 2000
     },
     {
       name: "-",
-      dist: sensor1[4],
+      Distancia: sensor1[4],
       pv: sensor1[1],
       amt: 2181
     },
     {
       name: "-",
-      dist: sensor1[5],
+      Distancia: sensor1[5],
       pv: sensor1[1],
       amt: 2500
     },
     {
       name: "-",
-      dist: sensor1[6],
+      Distancia: sensor1[6],
       pv: sensor1[1],
       amt: 2100
     }
@@ -202,11 +202,12 @@ const LoggedHome = () => {
                       stroke="#8884d8"
                       activeDot={{ r: 8 }}
                     /> */}
-                    <Line type="monotone" dataKey="dist" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="Distancia" stroke="#82ca9d" />
                   </LineChart>
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <a> Distancia a Basura (m)</a>
                   {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
                   {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
                 </div>
@@ -222,10 +223,16 @@ const LoggedHome = () => {
                   percent={sensor2} 
                   textColor="black"
                   needleColor="gray"
+                  formatTextValue={value => value + ' m/s'}
+                  animDelay={0}
+                  arcsLength={[0.4, 0.45, 0.15]}
+                  colors={['#5BE12C', '#F5CD19', '#EA4228']}
+                  arcPadding={0.01}
                 />
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <a> Velocidad</a>
                   {/* <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber2(e.target.value)}}/> */}
                   {/* <button onClick={changeSensor2Value} style={{textAlign: 'center'}}>button sensor2</button> */}
                 </div>
@@ -286,6 +293,7 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <a> Voltaje</a>
                   {/* <input placeholder="set number (0-100)" type="text" onChange={(e)=>{setNumber3(e.target.value)}}/> */}
                   {/* <button onClick={changeSensor3Value}>button sensor3</button> */}
                 </div>
