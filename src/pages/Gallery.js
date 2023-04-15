@@ -35,36 +35,6 @@ const Gallery = () => {
                         </div>
                     </div>
                     <div className="galleryContent">
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-                        <img alt="" src={require('../assets/images/FotoGaleria1.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria1.jpg'), 'Caption 1')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria2.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria2.jpg'), 'Caption 2')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria3.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria3.jpg'), 'Caption 3')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria4.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria4.jpg'), 'Caption 4')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria5.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria5.jpg'), 'Caption 5')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria6.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria6.jpg'), 'Caption 6')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria7.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria7.jpg'), 'Caption 7')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria8.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria8.jpg'), 'Caption 8')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria9.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria9.jpg'), 'Caption 9')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria10.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria10.jpg'), 'Caption 10')} />
-                        <img alt="" src={require('../assets/images/FotoGaleria11.jpg')} width="20%" className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria11.jpg'), 'Caption 11')} />
-=======
->>>>>>> Stashed changes
-                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo.png')} className="galleryImg"/>
-                        <img alt="" src={require('../assets/images/logo2.png')} className="galleryImg"/>
-<<<<<<< Updated upstream
-=======
->>>>>>> 82b43c3d12f7c3be07817031fd0a911c1a2e9956
->>>>>>> Stashed changes
                     </div>
                 </div>
                 <div className="modal" style={{ display: showModal ? "block" : "none" }}>
