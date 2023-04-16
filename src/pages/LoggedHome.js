@@ -12,8 +12,8 @@ import LiquidFillGauge from 'react-liquid-gauge';
 import Alert from '@mui/material/Alert';
 import Stack from '@mui/material/Stack';
 import { Card, CardContent, CardActions } from "@mui/material";
-
-
+import  {Parser} from '@json2csv/plainjs';
+import { unwind } from '@json2csv/transforms';
 import {
     LineChart,
     Line,
@@ -25,6 +25,24 @@ import {
   } from "recharts";
 
 const LoggedHome = () => {
+  const datosprueba = [
+    { "carModel": "Audi", "price": 0, "colors": ["blue","green","yellow"] },
+    { "carModel": "BMW", "price": 15000, "colors": ["red","blue"] },
+    { "carModel": "Mercedes", "price": 20000, "colors": "yellow" },
+    { "carModel": "Porsche", "price": 30000, "colors": ["green","teal","aqua"] },
+    { "carModel": "Tesla", "price": 50000, "colors": []}
+  ];
+  const handleDownloadCsv = () => {
+    const parser = new Parser({ delimiter: ';' });
+    const csvData =  parser.parse(datosprueba);
+    const element = document.createElement("a");
+    element.setAttribute("href", `data:text/csv;charset=utf-8,${csvData}`);
+    element.setAttribute("download", "DatosDescargados.csv");
+    element.style.display = "none";
+    document.body.appendChild(element);
+    element.click();
+    document.body.removeChild(element);
+  };
   const [data, setData] = useState([])
   const [number, setNumber] = useState(undefined)
   const [number2, setNumber2] = useState(undefined)
@@ -125,7 +143,7 @@ const LoggedHome = () => {
         }catch(e){
             console.log('error:',e)
     }}
-
+    
     useEffect(() => {
 
         const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
@@ -301,7 +319,9 @@ const LoggedHome = () => {
             </Card>
           </div>    
         </div>
-
+        <div className="loggedContent" >
+          <button onClick={handleDownloadCsv}>Download CSV</button>
+        </div>
       {/* <div className="loggedContent" >
         <Stack sx={{ width: '100%' }} spacing={2}>
           <Alert variant="filled" severity="error">
@@ -319,20 +339,20 @@ const LoggedHome = () => {
         </Stack>
       </div>
 
-      <div className="loggedContent" >
-          PayLoadRecibida:
-          {data.map(function(item, i){
-          return <li key={i}>{item.distance} {item.status}</li>
-          })}
+      // <div className="loggedContent" >
+      //     PayLoadRecibida:
+      //     {data.map(function(item, i){
+      //     return <li key={i}>{item.distance} {item.status}</li>
+      //     })}
           
-          {data.map(objetoa => {
-          //    return <li key={i}>Test</li>
-          //   const payload = atob(objetoa.payload_raw);
-          //   const date = new Date(objetoa.time * 1); // Multiplica por 1000 para obtener la fecha en milisegundos
-          //   const formattedDate = date.toLocaleString()
-            return <div key={}> {objetoa.distance} {objetoa.status}</div>
-          })}
-      </div> */}
+      //     {data.map(objetoa => {
+      //     //    return <li key={i}>Test</li>
+      //     //   const payload = atob(objetoa.payload_raw);
+      //     //   const date = new Date(objetoa.time * 1); // Multiplica por 1000 para obtener la fecha en milisegundos
+      //     //   const formattedDate = date.toLocaleString()
+      //       return <div key={}> {objetoa.distance} {objetoa.status}</div>
+      //     })}
+      // </div> */}
       </div>
     </div>
   )
