@@ -5,5 +5,10 @@ type Todo @model @auth(rules: [{allow: public}]) {
   s3: Float
   s4: Float
   s5: Float
+  s6: Float
+  s7: Float
+  s8: Float
+  s9: Float
+  s10: Float
 }
  

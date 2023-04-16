@@ -13,6 +13,11 @@ export const createTodo = /* GraphQL */ `
       s3
       s4
       s5
+      s6
+      s7
+      s8
+      s9
+      s10
       createdAt
       updatedAt
     }
@@ -30,6 +35,11 @@ export const updateTodo = /* GraphQL */ `
       s3
       s4
       s5
+      s6
+      s7
+      s8
+      s9
+      s10
       createdAt
       updatedAt
     }
@@ -47,6 +57,11 @@ export const deleteTodo = /* GraphQL */ `
       s3
       s4
       s5
+      s6
+      s7
+      s8
+      s9
+      s10
       createdAt
       updatedAt
     }

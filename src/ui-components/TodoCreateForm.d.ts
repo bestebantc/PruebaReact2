@@ -18,6 +18,11 @@ export declare type TodoCreateFormInputValues = {
     s3?: number;
     s4?: number;
     s5?: number;
+    s6?: number;
+    s7?: number;
+    s8?: number;
+    s9?: number;
+    s10?: number;
 };
 export declare type TodoCreateFormValidationValues = {
     s1?: ValidationFunction<number>;
@@ -25,6 +30,11 @@ export declare type TodoCreateFormValidationValues = {
     s3?: ValidationFunction<number>;
     s4?: ValidationFunction<number>;
     s5?: ValidationFunction<number>;
+    s6?: ValidationFunction<number>;
+    s7?: ValidationFunction<number>;
+    s8?: ValidationFunction<number>;
+    s9?: ValidationFunction<number>;
+    s10?: ValidationFunction<number>;
 };
 export declare type PrimitiveOverrideProps<T> = Partial<T> & React.DOMAttributes<HTMLDivElement>;
 export declare type TodoCreateFormOverridesProps = {
@@ -34,6 +44,11 @@ export declare type TodoCreateFormOverridesProps = {
     s3?: PrimitiveOverrideProps<TextFieldProps>;
     s4?: PrimitiveOverrideProps<TextFieldProps>;
     s5?: PrimitiveOverrideProps<TextFieldProps>;
+    s6?: PrimitiveOverrideProps<TextFieldProps>;
+    s7?: PrimitiveOverrideProps<TextFieldProps>;
+    s8?: PrimitiveOverrideProps<TextFieldProps>;
+    s9?: PrimitiveOverrideProps<TextFieldProps>;
+    s10?: PrimitiveOverrideProps<TextFieldProps>;
 } & EscapeHatchProps;
 export declare type TodoCreateFormProps = React.PropsWithChildren<{
     overrides?: TodoCreateFormOverridesProps | undefined | null;

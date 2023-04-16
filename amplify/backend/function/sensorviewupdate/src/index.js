@@ -30,6 +30,11 @@ const query = /* GraphQL */ `
       s3
       s4
       s5
+      s6
+      s7
+      s8
+      s9
+      s10
       createdAt
       updatedAt
     }
@@ -49,7 +54,12 @@ exports.handler = async (event) => {
           s2: event.data.s2,
           s3: event.data.s3,
           s4: event.data.s4,
-          s5: event.data.s5
+          s5: event.data.s5,
+          s6: event.data.s6,
+          s7: event.data.s7,
+          s8: event.data.s8,
+          s9: event.data.s9,
+          s10: event.data.s10
         }
       };
     console.log("Variables:", variables)

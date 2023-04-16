@@ -28,12 +28,22 @@ export default function TodoCreateForm(props) {
     s3: "",
     s4: "",
     s5: "",
+    s6: "",
+    s7: "",
+    s8: "",
+    s9: "",
+    s10: "",
   };
   const [s1, setS1] = React.useState(initialValues.s1);
   const [s2, setS2] = React.useState(initialValues.s2);
   const [s3, setS3] = React.useState(initialValues.s3);
   const [s4, setS4] = React.useState(initialValues.s4);
   const [s5, setS5] = React.useState(initialValues.s5);
+  const [s6, setS6] = React.useState(initialValues.s6);
+  const [s7, setS7] = React.useState(initialValues.s7);
+  const [s8, setS8] = React.useState(initialValues.s8);
+  const [s9, setS9] = React.useState(initialValues.s9);
+  const [s10, setS10] = React.useState(initialValues.s10);
   const [errors, setErrors] = React.useState({});
   const resetStateValues = () => {
     setS1(initialValues.s1);
@@ -41,6 +51,11 @@ export default function TodoCreateForm(props) {
     setS3(initialValues.s3);
     setS4(initialValues.s4);
     setS5(initialValues.s5);
+    setS6(initialValues.s6);
+    setS7(initialValues.s7);
+    setS8(initialValues.s8);
+    setS9(initialValues.s9);
+    setS10(initialValues.s10);
     setErrors({});
   };
   const validations = {
@@ -49,6 +64,11 @@ export default function TodoCreateForm(props) {
     s3: [],
     s4: [],
     s5: [],
+    s6: [],
+    s7: [],
+    s8: [],
+    s9: [],
+    s10: [],
   };
   const runValidationTasks = async (
     fieldName,
@@ -81,6 +101,11 @@ export default function TodoCreateForm(props) {
           s3,
           s4,
           s5,
+          s6,
+          s7,
+          s8,
+          s9,
+          s10,
         };
         const validationResponses = await Promise.all(
           Object.keys(validations).reduce((promises, fieldName) => {
@@ -144,6 +169,11 @@ export default function TodoCreateForm(props) {
               s3,
               s4,
               s5,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10,
             };
             const result = onChange(modelFields);
             value = result?.s1 ?? value;
@@ -176,6 +206,11 @@ export default function TodoCreateForm(props) {
               s3,
               s4,
               s5,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10,
             };
             const result = onChange(modelFields);
             value = result?.s2 ?? value;
@@ -208,6 +243,11 @@ export default function TodoCreateForm(props) {
               s3: value,
               s4,
               s5,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10,
             };
             const result = onChange(modelFields);
             value = result?.s3 ?? value;
@@ -240,6 +280,11 @@ export default function TodoCreateForm(props) {
               s3,
               s4: value,
               s5,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10,
             };
             const result = onChange(modelFields);
             value = result?.s4 ?? value;
@@ -272,6 +317,11 @@ export default function TodoCreateForm(props) {
               s3,
               s4,
               s5: value,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10,
             };
             const result = onChange(modelFields);
             value = result?.s5 ?? value;
@@ -285,6 +335,191 @@ export default function TodoCreateForm(props) {
         errorMessage={errors.s5?.errorMessage}
         hasError={errors.s5?.hasError}
         {...getOverrideProps(overrides, "s5")}
+      ></TextField>
+      <TextField
+        label="S6"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={s6}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              s1,
+              s2,
+              s3,
+              s4,
+              s5,
+              s6: value,
+              s7,
+              s8,
+              s9,
+              s10,
+            };
+            const result = onChange(modelFields);
+            value = result?.s6 ?? value;
+          }
+          if (errors.s6?.hasError) {
+            runValidationTasks("s6", value);
+          }
+          setS6(value);
+        }}
+        onBlur={() => runValidationTasks("s6", s6)}
+        errorMessage={errors.s6?.errorMessage}
+        hasError={errors.s6?.hasError}
+        {...getOverrideProps(overrides, "s6")}
+      ></TextField>
+      <TextField
+        label="S7"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={s7}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              s1,
+              s2,
+              s3,
+              s4,
+              s5,
+              s6,
+              s7: value,
+              s8,
+              s9,
+              s10,
+            };
+            const result = onChange(modelFields);
+            value = result?.s7 ?? value;
+          }
+          if (errors.s7?.hasError) {
+            runValidationTasks("s7", value);
+          }
+          setS7(value);
+        }}
+        onBlur={() => runValidationTasks("s7", s7)}
+        errorMessage={errors.s7?.errorMessage}
+        hasError={errors.s7?.hasError}
+        {...getOverrideProps(overrides, "s7")}
+      ></TextField>
+      <TextField
+        label="S8"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={s8}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              s1,
+              s2,
+              s3,
+              s4,
+              s5,
+              s6,
+              s7,
+              s8: value,
+              s9,
+              s10,
+            };
+            const result = onChange(modelFields);
+            value = result?.s8 ?? value;
+          }
+          if (errors.s8?.hasError) {
+            runValidationTasks("s8", value);
+          }
+          setS8(value);
+        }}
+        onBlur={() => runValidationTasks("s8", s8)}
+        errorMessage={errors.s8?.errorMessage}
+        hasError={errors.s8?.hasError}
+        {...getOverrideProps(overrides, "s8")}
+      ></TextField>
+      <TextField
+        label="S9"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={s9}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              s1,
+              s2,
+              s3,
+              s4,
+              s5,
+              s6,
+              s7,
+              s8,
+              s9: value,
+              s10,
+            };
+            const result = onChange(modelFields);
+            value = result?.s9 ?? value;
+          }
+          if (errors.s9?.hasError) {
+            runValidationTasks("s9", value);
+          }
+          setS9(value);
+        }}
+        onBlur={() => runValidationTasks("s9", s9)}
+        errorMessage={errors.s9?.errorMessage}
+        hasError={errors.s9?.hasError}
+        {...getOverrideProps(overrides, "s9")}
+      ></TextField>
+      <TextField
+        label="S10"
+        isRequired={false}
+        isReadOnly={false}
+        type="number"
+        step="any"
+        value={s10}
+        onChange={(e) => {
+          let value = isNaN(parseFloat(e.target.value))
+            ? e.target.value
+            : parseFloat(e.target.value);
+          if (onChange) {
+            const modelFields = {
+              s1,
+              s2,
+              s3,
+              s4,
+              s5,
+              s6,
+              s7,
+              s8,
+              s9,
+              s10: value,
+            };
+            const result = onChange(modelFields);
+            value = result?.s10 ?? value;
+          }
+          if (errors.s10?.hasError) {
+            runValidationTasks("s10", value);
+          }
+          setS10(value);
+        }}
+        onBlur={() => runValidationTasks("s10", s10)}
+        errorMessage={errors.s10?.errorMessage}
+        hasError={errors.s10?.hasError}
+        {...getOverrideProps(overrides, "s10")}
       ></TextField>
       <Flex
         justifyContent="space-between"
