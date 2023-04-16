@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState } from "react";
 import { NavBar } from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import '../styles/Home.css'
-
+import Spline from "@splinetool/react-spline"
+import { ClipLoader } from 'react-spinners';
 const Home = () => {
-
+    const [loading, setLoading] = useState(true);
 
     return (
         <div className="homeContainer">
@@ -13,9 +14,7 @@ const Home = () => {
                 <div className="home">
                     <div className="spot" style={{marginTop: '20px'}}>
                         <div className="homeHeader">
-                            
                                 <img src={require('../assets/images/LogoBLUE.png')} width="10%" alt="" />
-
                             <div className="title">
                                 PROYECTO MAKAI RANGER
                             </div>
@@ -25,7 +24,7 @@ const Home = () => {
                                 ¿Alguna vez has visto la contaminación que flota en nuestros ríos y océanos? 
                                 ¿Te has preguntado cómo podemos limpiar todo eso y mantener nuestro planeta limpio y saludable para las generaciones futuras?
                                 ¡Tenemos la respuesta! Conoce a Makai Ranger, el barco pequeño pero poderoso que está cambiando el juego en la limpieza de vías fluviales.
-                            </p>
+                            </p>    
                             <p>
                                 Imagina navegar por los ríos más bellos de Colombia y del mundo, 
                                 mientras te aseguras de que estén libres de basura y contaminación. 
@@ -36,15 +35,18 @@ const Home = () => {
                         </div>
                     </div>
 
-                    <div className="spot">
+                    <div className="spot" >
                         <img src={require('../assets/images/ImgIzq.png')} width="100%" height="100%" alt=""/>
                     </div>
-
-                    <div className="spot">
-                        <img src={require('../assets/images/NoImage.png')} alt="" width={"100%"}/>
+                    <div className="spot" style={{ height: '450px' }}>
+                        {loading && (
+                        <div className="spinner">
+                            <ClipLoader css={`margin: 0 auto;`} size={150} color={'#123abc'} loading={loading} />
+                        </div>
+                        )}
+                        <Spline scene="https://draft.spline.design/FV5qUeCODJDpVmB1/scene.splinecode" onLoad={() => setLoading(false)} />
                     </div>
-
-                    <div className="spot">
+                    <div className="spot" >
                         <div className="home2">
                             <div className="title">MAKAI RANGER</div>
                             <img src={require('../assets/images/LogoBLUE.png')} width='20%' alt=""/>
@@ -89,7 +91,6 @@ const Home = () => {
                     <div className="spot title">
                         Image
                     </div>
-
                     <div className="spot title">
                         Image
                     </div>
