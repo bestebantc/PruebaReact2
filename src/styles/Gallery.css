@@ -28,6 +28,9 @@
     border: #ffffff solid 3px;
     border-radius: 10px;
     width: 400px;
+    max-height: 30  0px; /* limita la altura de la imagen a 600px */
+    object-fit: cover; /* recorta la imagen */
+    
 }
 
 /*  */

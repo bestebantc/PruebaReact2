@@ -45,6 +45,13 @@ const Gallery = () => {
                         <img alt="" src={require('../assets/images/FotoGaleria9.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria9.jpg'), 'Caption 9')} />
                         <img alt="" src={require('../assets/images/FotoGaleria10.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria10.jpg'), 'Caption 10')} />
                         <img alt="" src={require('../assets/images/FotoGaleria11.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria11.jpg'), 'Caption 11')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria12.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria12.jpg'), 'Caption 12')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria13.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria13.jpg'), 'Caption 13')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria14.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria14.jpg'), 'Caption 14')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria15.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria15.jpg'), 'Caption 15')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria16.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria16.jpg'), 'Caption 16')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria17.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria17.jpg'), 'Caption 17')} />
+                        <img alt="" src={require('../assets/images/FotoGaleria18.jpg')} className="galleryImg" onClick={() => handleImageClick(require('../assets/images/FotoGaleria18.jpg'), 'Caption 18')} />
 
                     </div>
                 </div>
