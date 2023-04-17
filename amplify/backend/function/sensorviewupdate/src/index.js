@@ -18,7 +18,6 @@ const { HttpRequest } = require('@aws-sdk/protocol-http');
 const nodeFetch  = require('node-fetch');
 const fetch = nodeFetch.default;
 const Request = nodeFetch.Request;
-
 const { Sha256 } = crypto;
 
 const query = /* GraphQL */ `
@@ -41,13 +40,9 @@ const query = /* GraphQL */ `
   }
   
 `;
-
-
 exports.handler = async (event) => {
     console.log("!Hola¡, Aqui se empieza a debuguear")
     console.log(`EVENT: ${JSON.stringify(event)}`);
-    
-    
     const variables = {
         input: {
           s1: event.data.s1,
@@ -63,7 +58,6 @@ exports.handler = async (event) => {
         }
       };
     console.log("Variables:", variables)
-
     const endpoint = new URL("https://jr5ias5gvbhzlbzwx5dem5dchq.appsync-api.us-east-1.amazonaws.com/graphql");
     const region = "us-east-1"
 

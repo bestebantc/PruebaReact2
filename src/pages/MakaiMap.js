@@ -2,9 +2,38 @@
         import "../styles/Logged.css";
         import { useEffect, useState, React, useRef} from "react";
         import { Wrapper, Status } from "@googlemaps/react-wrapper";
-
+        import { API, graphqlOperation } from "aws-amplify";
+        import * as subscriptions from '../graphql/subscriptions';
+        import hook from "../Context/hook";
+        import {listTodos} from '../graphql/queries';
         const MakaiMap = () => {
-            const center = { lat: 4.68360892669428, lng: -74.04250725972547 };
+            // s9: response.value.data.onCreateTodo.s9,
+            // s10: response.value.data.onCreateTodo.s10
+            const {latitude,longitude}= hook();
+            const status = {
+                "status": ""
+            }
+            const [sens1, setSens1] = useState(-74.04250725972547)
+            const [sens2, setSens2] = useState(4.68360892669428)
+            useEffect(() => {
+                const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
+                    next: (response) => {
+                        console.log(response.value)
+                        console.log("se recibieron datos")
+                        setSens2(response.value.data.onCreateTodo.s9)
+                        setSens1(response.value.data.onCreateTodo.s10)
+                    },
+                    error: (error) => {
+                      console.log('error on sensor subscription', error);
+                    }
+                });
+                return () => {
+                    console.log('terminating subscription to sensor');
+                    subscriber.unsubscribe();
+                }
+            }, []);
+            const center1 = { lat: 4.68360892669428, lng: -74.04250725972547 };
+            const center = { lat: sens2, lng: sens1 };
             const zoom = 16; 
             function MyMapComponent({
                 center,

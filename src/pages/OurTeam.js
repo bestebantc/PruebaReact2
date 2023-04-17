@@ -57,7 +57,7 @@ const OurTeam = () => {
                             </div>
                         </div>
                         <div className="teamMember">
-                            <div className="teamIcon"><img src={require('../assets/images/FotoFredy2.png')} alt="" /></div>
+                            <div className="teamIcon"><img src={require('../assets/images/FotoFredy.png')} alt="" /></div>
                             <div className="teamDescription">
                                 <div className="teamTitle">Freddy Alexis Herrera</div>
                                 <div className="teamText">Hola, mi nombre es freddy Ortiz estudiante de ingeniería mecatrónica de la UMNG desde el año 2019.
@@ -176,7 +176,7 @@ const OurTeam = () => {
                         </div>
                         
                         <div className="teamMember">
-                            <div className="teamIcon"><img src={require('../assets/images/FotoMateo2.jpg')} alt="" /></div>
+                            <div className="teamIcon"><img src={require('../assets/images/FotoMateo.jpg')} alt="" /></div>
                             <div className="teamDescription">
                                 <div className="teamTitle">Mateo Beltran Sierra</div>
                                 <div className="teamText">Buenos días todos, soy Mateo  y formo parte del equipo de diseño del barco. En concreto, me encargo del diseño general de la embarcación, lo que incluye desde la estructura hasta la distribución del espacio y el aspecto estético del barco.

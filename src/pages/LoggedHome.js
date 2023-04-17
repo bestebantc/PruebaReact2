@@ -14,6 +14,8 @@ import Stack from '@mui/material/Stack';
 import { Card, CardContent, CardActions } from "@mui/material";
 import  {Parser} from '@json2csv/plainjs';
 import { unwind } from '@json2csv/transforms';
+import { Bullet } from '@ant-design/plots';
+import hook from "../Context/hook";
 import {
     LineChart,
     Line,
@@ -23,8 +25,9 @@ import {
     Tooltip,
     Legend
   } from "recharts";
-
 const LoggedHome = () => {
+  const {loadLatitude,loadLongitude}= hook();
+
   const datosprueba = [
     { "carModel": "Audi", "price": 0, "colors": ["blue","green","yellow"] },
     { "carModel": "BMW", "price": 15000, "colors": ["red","blue"] },
@@ -32,17 +35,11 @@ const LoggedHome = () => {
     { "carModel": "Porsche", "price": 30000, "colors": ["green","teal","aqua"] },
     { "carModel": "Tesla", "price": 50000, "colors": []}
   ];
-  const handleDownloadCsv = () => {
-    const parser = new Parser({ delimiter: ';' });
-    const csvData =  parser.parse(datosprueba);
-    const element = document.createElement("a");
-    element.setAttribute("href", `data:text/csv;charset=utf-8,${csvData}`);
-    element.setAttribute("download", "DatosDescargados.csv");
-    element.style.display = "none";
-    document.body.appendChild(element);
-    element.click();
-    document.body.removeChild(element);
-  };
+
+
+
+
+
   const [data, setData] = useState([])
   const [number, setNumber] = useState(undefined)
   const [number2, setNumber2] = useState(undefined)
@@ -130,26 +127,37 @@ const LoggedHome = () => {
       amt: 2100
     }
   ];    
-    useEffect(()=>{
-        listSensorData();
-
-    },[])
-    const listSensorData = async () => {
+    // useEffect(()=>{
+    //   DescargarCSV();
+    // },[])
+    const DescargarCSV = async () => {
         try{
             const response = await API.graphql(graphqlOperation(listTodos));
             const todoList = response.data.listTodos.items;
             console.log('list data:', todoList)
-            setData(response.data.listTodos.items)
+            handleDownloadCsv(response.data.listTodos.items)
         }catch(e){
             console.log('error:',e)
     }}
-    
+    const handleDownloadCsv = (data) => {
+      const parser = new Parser({ delimiter: ';' });
+      const csvData =  parser.parse(data);
+      const element = document.createElement("a");
+      element.setAttribute("href", `data:text/csv;charset=utf-8,${csvData}`);
+      element.setAttribute("download", "DatosDescargados.csv");
+      element.style.display = "none";
+      document.body.appendChild(element);
+      element.click();
+      document.body.removeChild(element);
+    };
     useEffect(() => {
-
         const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
             next: (response) => {
+
                 console.log(response.value)
                 console.log("se recibieron datos")
+                  loadLatitude(response.value.data.onCreateTodo.s9)
+                  loadLongitude(response.value.data.onCreateTodo.s10)
                   setSensor2(response.value.data.onCreateTodo.s1/100) //VELOCIDAD 0-100 s1
                   setSensor3(response.value.data.onCreateTodo.s2) //PORCENTAJE BATERIA
                   setSensor1((prevState) => {
@@ -160,10 +168,8 @@ const LoggedHome = () => {
                   });
                   // s3: response.value.data.onCreateTodo.s3,
                   // s4: response.value.data.onCreateTodo.s4,
-                  // s5: response.value.data.onCreateTodo.s5,
-                    
+                  // s5: response.value.data.onCreateTodo.s5, y asi hasta el 10 XD
                 // });
-              
             },
             error: (error) => {
               console.log('error on sensor subscription', error);
@@ -193,45 +199,11 @@ const LoggedHome = () => {
   return(
     <div className="page">
       <LoggedNavBar/>
+      <Alert variant="filled" severity="success">
+        ta bien too
+      </Alert>
       <div style={{width: '100%'}}>
         <div className="graphsContainer">
-          <div className="graphs">
-            <Card className="cardStyle">
-              <CardContent>
-                <LineChart
-                    width={500}
-                    height={300}
-                    data={datosgraficaprueba}
-                    margin={{
-                        top: 5,
-                        right: 80,
-                        left: 0,
-                        bottom: 5
-                    }}
-                  >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    {/* <Line
-                      type="monotone"
-                      dataKey="pv"
-                      stroke="#8884d8"
-                      activeDot={{ r: 8 }}
-                    /> */}
-                    <Line type="monotone" dataKey="Distancia" stroke="#82ca9d" />
-                  </LineChart>
-              </CardContent>
-              <CardActions>
-                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <a> Distancia a Basura (m)</a>
-                  {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
-                  {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
-                </div>
-              </CardActions>
-            </Card>
-          </div>
           <div className="graphs">
             <Card className="cardStyle">
               <CardContent>
@@ -316,11 +288,86 @@ const LoggedHome = () => {
                   {/* <button onClick={changeSensor3Value}>button sensor3</button> */}
                 </div>
               </CardActions>
+              
             </Card>
           </div>    
+          <div className="graphs">
+            <Card className="cardStyle">
+              <CardContent>
+                <LineChart
+                    width={500}
+                    height={300}
+                    data={datosgraficaprueba}
+                    margin={{
+                        top: 5,
+                        right: 80,
+                        left: 0,
+                        bottom: 5
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    {/* <Line
+                      type="monotone"
+                      dataKey="pv"
+                      stroke="#8884d8"
+                      activeDot={{ r: 8 }}
+                    /> */}
+                    <Line type="monotone" dataKey="Distancia" stroke="#82ca9d" />
+                  </LineChart>
+              </CardContent>
+              <CardActions>
+                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <a> Distancia a Basura (m)</a>
+                  {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
+                  {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
+                </div>
+              </CardActions>
+            </Card>
+          </div>
+          <div className="graphs">
+            <Card className="cardStyle">
+              <CardContent>
+                <LineChart
+                    width={500}
+                    height={300}
+                    data={datosgraficaprueba}
+                    margin={{
+                        top: 5,
+                        right: 80,
+                        left: 0,
+                        bottom: 5
+                    }}
+                  >
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <XAxis dataKey="name" />
+                    <YAxis />
+                    <Tooltip />
+                    <Legend />
+                    {/* <Line
+                      type="monotone"
+                      dataKey="pv"
+                      stroke="#8884d8"
+                      activeDot={{ r: 8 }}
+                    /> */}
+                    <Line type="monotone" dataKey="Potencia" stroke="#82ca9d" />
+                  </LineChart>
+              </CardContent>
+              <CardActions>
+                <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
+                  <a> Potencia (W)</a>
+                  {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
+                  {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
+                </div>
+              </CardActions>
+            </Card>
+          </div>
         </div>
         <div className="loggedContent" >
-          <button onClick={handleDownloadCsv}>Download CSV</button>
+          <button onClick={DescargarCSV}>Download CSV</button>
         </div>
       {/* <div className="loggedContent" >
         <Stack sx={{ width: '100%' }} spacing={2}>
