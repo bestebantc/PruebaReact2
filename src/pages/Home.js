@@ -6,7 +6,6 @@ import Spline from "@splinetool/react-spline"
 import { ClipLoader } from 'react-spinners';
 const Home = () => {
     const [loading, setLoading] = useState(true);
-
     return (
         <div className="homeContainer">
             <NavBar/>
@@ -58,28 +57,26 @@ const Home = () => {
                         y cuerpos de agua más limpios
                         </div>
                     </div>
-
                     <div className="spot">
-                        <img src={require('../assets/images/madera.png')} width='10%' alt=""/>
+                        <div className="title"><img src={require('../assets/images/madera.png')} width='10%' alt=""/></div>
                         <div className="title">Materiales</div>
                         <ul className="homeText">
-                            <li>Madera</li>
-                            <li>RaspBerry PI 4</li>
-                            <li>Clorhidrato de Sodio</li>
-                            <li>Adamantium</li>
+                            <li>Cascos: MDF y Fibra de Vidrio</li>
+                            <li>Anillo: MDFy Aluminio</li>
+                            <li>Tornillos: Aluminio</li>
+                            <li>Rieles: acero</li>
+                            <li>Canasta: Aluminio</li>
                         </ul>
                     </div>
-
                     <div className="spot">
-                        <img src={require('../assets/images/dimensions.png')} width='10%' alt=""/>
+                        <div className="title"><img src={require('../assets/images/dimensions.png')} width='10%' alt="" center/></div>
                         <div className="title">Dimensiones</div>
                         <ul className="homeText">
-                            <li>Alto 50cm  </li>
+                            <li>Alto 85cm  </li>
                             <li>Lagro 150cm</li>
                             <li>Ancho 100cm</li>
                         </ul>
                     </div>
-
                     <div className="spot homeText"> 
                         Los ríos son la principal fuente de agua dulce del mundo, 
                         y son esenciales para la supervivencia de los ecosistemas y la vida humana.
@@ -89,12 +86,11 @@ const Home = () => {
                     </div>
 
                     <div className="spot title">
-                        Image
+                        Imagen Barco terminado
                     </div>
                     <div className="spot title">
-                        Image
+                        Imagen o Video Barco Funcionando
                     </div>
-                    
                     <div className="spot homeText">
                         La basura que cae a los ríos es una de las principales causas del deterioro de la biodiversidad acuática en todo el mundo. 
                         Según la FAO, cada año se vierten alrededor de 8 millones de toneladas de plásticos en los océanos, 
@@ -103,7 +99,6 @@ const Home = () => {
                         principalmente a través de los ríos.
                     </div>
                 </div>
-
             </div>
             <Footer/>
         </div>

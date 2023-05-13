@@ -39,7 +39,7 @@ const OurTeam = () => {
                             </div>
                         </div>
                         <div className="teamMember">
-                            <div className="teamIcon"><img src={require('../assets/images/FotoSebastian.jpg')} alt="" /></div>
+                            <div className="teamIcon"><img src={require('../assets/images/FotoCarta.jpg')} alt="" /></div>
                             <div className="teamDescription">
                                 <div className="teamTitle">Sebastian Cartagena</div>
                                 <div className="teamText">Saludos, me llamo Sebastian y soy miembro del grupo de Tecnologias de la Informacion responsable de el
@@ -122,7 +122,7 @@ const OurTeam = () => {
                             </div>
                         </div>
                         <div className="teamMember">
-                            <div className="teamIcon"><img src={require('../assets/images/FotoValentina.jpg')} alt="" /></div>
+                            <div className="teamIcon"><img src={require('../assets/images/FotoValentina.png')} alt="" /></div>
                             <div className="teamDescription">
                                 <div className="teamTitle">Laura Valentina Castellanos Rojas</div>
                                 <div className="teamText">Hola soy valentina, pertenezco al area de electrónica

@@ -6,9 +6,10 @@ export const Footer = () => {
         <div className="footerContainer">
             <div className="footerContact">
                 <div className="footerTitle">Contactanos</div>
-                <div className="footerText">Facebook</div>
-                <div className="footerText">Instagram</div>
-                <div className="footerText">Twitter</div>
+                <div className="footerText">
+                <a href="https://www.instagram.com/makairanger_2023/">Instagram</a>
+                </div>
+                <div className="footerText">Whastsapp +57 322 2211776</div>
             </div>
             <div className="footerRights">
                 <div>Todos los derechos reservados</div>
