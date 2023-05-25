@@ -72,7 +72,7 @@ exports.handler = async (event) => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'x-api-key': 'da2-kbfpqjwlxne27g4jnj6qyhvjte',
+          'x-api-key': 'da2-koirnviplvdxxne5nqtznxpgam',
           host: endpoint.host
         },
         hostname: endpoint.host,

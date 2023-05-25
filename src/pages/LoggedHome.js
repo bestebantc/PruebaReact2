@@ -140,44 +140,44 @@ const LoggedHome = () => {
   const sensor2rasp = [
     {
       name: "-",
-      Distancia: sensor1[0],
-      pv: sensor1[1],
+      Distancia: sensor4[0],
+      pv: sensor4[1],
       amt: 2400
     },
     {
       name: "-",
-      Distancia: sensor1[1],
-      pv: sensor1[1],
+      Distancia: sensor4[1],
+      pv: sensor4[1],
       amt: 2210
     },
     {
       name: "-",
-      Distancia: sensor1[2],
-      pv: sensor1[1],
+      Distancia: sensor4[2],
+      pv: sensor4[1],
       amt: 2290
     },
     {
       name: "-",
-      Distancia: sensor1[3],
-      pv: sensor1[1],
+      Distancia: sensor4[3],
+      pv: sensor4[1],
       amt: 2000
     },
     {
       name: "-",
-      Distancia: sensor1[4],
-      pv: sensor1[1],
+      Distancia: sensor4[4],
+      pv: sensor4[1],
       amt: 2181
     },
     {
       name: "-",
-      Distancia: sensor1[5],
-      pv: sensor1[1],
+      Distancia: sensor4[5],
+      pv: sensor4[1],
       amt: 2500
     },
     {
       name: "-",
-      Distancia: sensor1[6],
-      pv: sensor1[1],
+      Distancia: sensor4[6],
+      pv: sensor4[1],
       amt: 2100
     }
   ];    
@@ -208,11 +208,11 @@ const LoggedHome = () => {
         const subscriber = API.graphql(graphqlOperation(subscriptions.onCreateTodo, {status : status})).subscribe({
             next: (response) => {
 
-                console.log(response.value)
-                console.log("se recibieron datos")
+              console.log("se recibieron datos")
+              console.log(response.value.data.onCreateTodo)
                   loadLatitude(response.value.data.onCreateTodo.s9)
                   loadLongitude(response.value.data.onCreateTodo.s10)
-                  setSensor2(response.value.data.onCreateTodo.s6/100) //VELOCIDAD 0-100 s1
+                  setSensor2(response.value.data.onCreateTodo.s6  /100) //VELOCIDAD 0-100 s1
                   setSensor3(response.value.data.onCreateTodo.s5) //PORCENTAJE BATERIA
                   setSensor1((prevState) => {
                     const newArray = Array.from(prevState);  // dist 1
@@ -220,7 +220,7 @@ const LoggedHome = () => {
                     newArray.push(response.value.data.onCreateTodo.s1);
                     return newArray;  
                   });
-                  setSensor1((prevState) => {
+                  setSensor4((prevState) => {
                     const newArray = Array.from(prevState);  // dist 1
                     newArray.shift();
                     newArray.push(response.value.data.onCreateTodo.s2);
@@ -377,7 +377,7 @@ const LoggedHome = () => {
                       stroke="#8884d8"
                       activeDot={{ r: 8 }}
                     /> */}
-                    <Line type="monotone" dataKey="Distancia" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="Distancia 1" stroke="#82ca9d" />
                   </LineChart>
               </CardContent>
               <CardActions>
@@ -414,7 +414,7 @@ const LoggedHome = () => {
                       stroke="#8884d8"
                       activeDot={{ r: 8 }}
                     /> */}
-                    <Line type="monotone" dataKey="Potencia" stroke="#82ca9d" />
+                    <Line type="monotone" dataKey="Distancia 2" stroke="#82ca9d" />
                   </LineChart>
               </CardContent>
               <CardActions>
