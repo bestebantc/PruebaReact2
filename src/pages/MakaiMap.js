@@ -20,8 +20,8 @@
                     next: (response) => {
                         console.log(response.value)
                         console.log("se recibieron datos")
-                        setSens2(response.value.data.onCreateTodo.s9)
-                        setSens1(response.value.data.onCreateTodo.s10)
+                        setSens2(response.value.data.onCreateTodo.s3) //lat
+                        setSens1(response.value.data.onCreateTodo.s4) //lon
                     },
                     error: (error) => {
                       console.log('error on sensor subscription', error);

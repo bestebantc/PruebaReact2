@@ -46,7 +46,17 @@ const LoggedHome = () => {
   const [sensor2, setSensor2] = useState(0.0)
   const [number3, setNumber3] = useState(undefined)
   const [sensor3, setSensor3] = useState(0)
+  const [number4, setNumber4] = useState(undefined)
   const [sensor1, setSensor1] = useState([
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+  ])
+  const [sensor4, setSensor4] = useState([
     1,
     2,
     3,
@@ -83,7 +93,51 @@ const LoggedHome = () => {
       offset: '100%'
     }
   ];
-  const datosgraficaprueba = [
+  const sensor1rasp = [
+    {
+      name: "-",
+      Distancia: sensor1[0],
+      pv: sensor1[1],
+      amt: 2400
+    },
+    {
+      name: "-",
+      Distancia: sensor1[1],
+      pv: sensor1[1],
+      amt: 2210
+    },
+    {
+      name: "-",
+      Distancia: sensor1[2],
+      pv: sensor1[1],
+      amt: 2290
+    },
+    {
+      name: "-",
+      Distancia: sensor1[3],
+      pv: sensor1[1],
+      amt: 2000
+    },
+    {
+      name: "-",
+      Distancia: sensor1[4],
+      pv: sensor1[1],
+      amt: 2181
+    },
+    {
+      name: "-",
+      Distancia: sensor1[5],
+      pv: sensor1[1],
+      amt: 2500
+    },
+    {
+      name: "-",
+      Distancia: sensor1[6],
+      pv: sensor1[1],
+      amt: 2100
+    }
+  ]
+  const sensor2rasp = [
     {
       name: "-",
       Distancia: sensor1[0],
@@ -158,14 +212,21 @@ const LoggedHome = () => {
                 console.log("se recibieron datos")
                   loadLatitude(response.value.data.onCreateTodo.s9)
                   loadLongitude(response.value.data.onCreateTodo.s10)
-                  setSensor2(response.value.data.onCreateTodo.s1/100) //VELOCIDAD 0-100 s1
-                  setSensor3(response.value.data.onCreateTodo.s2) //PORCENTAJE BATERIA
+                  setSensor2(response.value.data.onCreateTodo.s6/100) //VELOCIDAD 0-100 s1
+                  setSensor3(response.value.data.onCreateTodo.s5) //PORCENTAJE BATERIA
                   setSensor1((prevState) => {
-                    const newArray = Array.from(prevState);  // CREATING A NEW ARRAY OBJECT
+                    const newArray = Array.from(prevState);  // dist 1
                     newArray.shift();
-                    newArray.push(response.value.data.onCreateTodo.s3);
+                    newArray.push(response.value.data.onCreateTodo.s1);
                     return newArray;  
                   });
+                  setSensor1((prevState) => {
+                    const newArray = Array.from(prevState);  // dist 1
+                    newArray.shift();
+                    newArray.push(response.value.data.onCreateTodo.s2);
+                    return newArray;  
+                  });
+
                   // s3: response.value.data.onCreateTodo.s3,
                   // s4: response.value.data.onCreateTodo.s4,
                   // s5: response.value.data.onCreateTodo.s5, y asi hasta el 10 XD
@@ -297,7 +358,7 @@ const LoggedHome = () => {
                 <LineChart
                     width={500}
                     height={300}
-                    data={datosgraficaprueba}
+                    data={sensor1rasp}
                     margin={{
                         top: 5,
                         right: 80,
@@ -334,7 +395,7 @@ const LoggedHome = () => {
                 <LineChart
                     width={500}
                     height={300}
-                    data={datosgraficaprueba}
+                    data={sensor2rasp}
                     margin={{
                         top: 5,
                         right: 80,
