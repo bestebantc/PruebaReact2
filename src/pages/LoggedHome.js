@@ -96,88 +96,88 @@ const LoggedHome = () => {
   const sensor1rasp = [
     {
       name: "-",
-      Distancia: sensor1[0],
-      pv: sensor1[1],
+      Distancia: 1000,
+      pv: sensor1[0],
       amt: 2400
     },
     {
       name: "-",
-      Distancia: sensor1[1],
+      Distancia: 100,
       pv: sensor1[1],
       amt: 2210
     },
     {
       name: "-",
-      Distancia: sensor1[2],
-      pv: sensor1[1],
+      Distancia: 100,
+      pv: sensor1[2],
       amt: 2290
     },
     {
       name: "-",
-      Distancia: sensor1[3],
-      pv: sensor1[1],
+      Distancia: 100,
+      pv: sensor1[3],
       amt: 2000
     },
     {
       name: "-",
-      Distancia: sensor1[4],
-      pv: sensor1[1],
+      Distancia: 100,
+      pv: sensor1[4],
       amt: 2181
     },
     {
       name: "-",
-      Distancia: sensor1[5],
-      pv: sensor1[1],
+      Distancia: 100,
+      pv: sensor1[5],
       amt: 2500
     },
     {
       name: "-",
-      Distancia: sensor1[6],
-      pv: sensor1[1],
+      Distancia: 100,
+      pv: sensor1[6],
       amt: 2100
     }
   ]
   const sensor2rasp = [
     {
       name: "-",
-      Distancia: sensor4[0],
-      pv: sensor4[1],
+      Distancia: 100,
+       pv: sensor4[0],
       amt: 2400
     },
     {
       name: "-",
-      Distancia: sensor4[1],
-      pv: sensor4[1],
+      Distancia: 100,
+       pv: sensor4[1],
       amt: 2210
     },
     {
       name: "-",
-      Distancia: sensor4[2],
-      pv: sensor4[1],
+      //Distancia: sensor4[2],
+      pv: sensor4[2],
       amt: 2290
     },
     {
       name: "-",
-      Distancia: sensor4[3],
-      pv: sensor4[1],
+      // Distancia: sensor4[3],
+      pv: sensor4[3],
       amt: 2000
     },
     {
       name: "-",
-      Distancia: sensor4[4],
-      pv: sensor4[1],
+      // Distancia: sensor4[4],
+      pv: sensor4[4],
       amt: 2181
     },
     {
       name: "-",
-      Distancia: sensor4[5],
-      pv: sensor4[1],
+      // Distancia: sensor4[5],
+      pv: sensor4[5],
       amt: 2500
     },
     {
       name: "-",
-      Distancia: sensor4[6],
-      pv: sensor4[1],
+      // Distancia: sensor4[6],
+      pv: sensor4[6],
       amt: 2100
     }
   ];    
@@ -209,7 +209,9 @@ const LoggedHome = () => {
             next: (response) => {
 
               console.log("se recibieron datos")
-              console.log(response.value.data.onCreateTodo)
+              console.log(response.value.data.onCreateTodo.s1)
+              console.log(sensor1)
+              
                   loadLatitude(response.value.data.onCreateTodo.s9)
                   loadLongitude(response.value.data.onCreateTodo.s10)
                   setSensor2(response.value.data.onCreateTodo.s6  /100) //VELOCIDAD 0-100 s1
@@ -218,7 +220,9 @@ const LoggedHome = () => {
                     const newArray = Array.from(prevState);  // dist 1
                     newArray.shift();
                     newArray.push(response.value.data.onCreateTodo.s1);
-                    return newArray;  
+                    console.log('newArray')
+                    // console.log(newArray)
+                    return newArray; 
                   });
                   setSensor4((prevState) => {
                     const newArray = Array.from(prevState);  // dist 1
@@ -242,7 +246,7 @@ const LoggedHome = () => {
         }
     }, [data]);
 
-  console.log("distancia",data.distance)
+  //console.log("distancia",data.distance)
   const changeSensor1Value = () => {
     setSensor1((prevState) => {
       const newArray = Array.from(prevState);  // CREATING A NEW ARRAY OBJECT
@@ -356,6 +360,30 @@ const LoggedHome = () => {
             <Card className="cardStyle">
               <CardContent>
                 <LineChart
+                  width={500}
+                  height={300}
+                  data={sensor1rasp}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="pv"
+                    stroke="#8884d8"
+                    activeDot={{ r: 8 }}
+                  />
+                  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                </LineChart>
+                {/* <LineChart
                     width={500}
                     height={300}
                     data={sensor1rasp}
@@ -371,14 +399,8 @@ const LoggedHome = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    {/* <Line
-                      type="monotone"
-                      dataKey="pv"
-                      stroke="#8884d8"
-                      activeDot={{ r: 8 }}
-                    /> */}
                     <Line type="monotone" dataKey="Distancia 1" stroke="#82ca9d" />
-                  </LineChart>
+                  </LineChart> */}
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
@@ -392,10 +414,34 @@ const LoggedHome = () => {
           <div className="graphs">
             <Card className="cardStyle">
               <CardContent>
-                <LineChart
+              <LineChart
+                  width={500}
+                  height={300}
+                  data={sensor2rasp}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 20,
+                    bottom: 5
+                  }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <Line
+                    type="monotone"
+                    dataKey="pv"
+                    stroke="#8884d8"
+                    activeDot={{ r: 8 }}
+                  />
+                  <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                </LineChart>
+                {/* <LineChart
                     width={500}
                     height={300}
-                    data={sensor2rasp}
+                    data={sensor1rasp}
                     margin={{
                         top: 5,
                         right: 80,
@@ -408,14 +454,8 @@ const LoggedHome = () => {
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    {/* <Line
-                      type="monotone"
-                      dataKey="pv"
-                      stroke="#8884d8"
-                      activeDot={{ r: 8 }}
-                    /> */}
                     <Line type="monotone" dataKey="Distancia 2" stroke="#82ca9d" />
-                  </LineChart>
+                  </LineChart> */}
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
@@ -466,4 +506,4 @@ const LoggedHome = () => {
   )
 }
 
-export default LoggedHome;
+export default LoggedHome;
