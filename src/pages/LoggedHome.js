@@ -404,7 +404,7 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <a> Distancia a Basura (m)</a>
+                  <a> Distancia a Basura (cm)</a>
                   {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
                   {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
                 </div>
@@ -459,7 +459,7 @@ const LoggedHome = () => {
               </CardContent>
               <CardActions>
                 <div style={{width: "100%", display: "flex", justifyContent:'center'}}>
-                  <a> Potencia (W)</a>
+                  <a> Distancia a Basura 2 (cm)</a>
                   {/* <input placeholder="set number" type="text" pattern="[0-9]*" onChange={(e)=>{setNumber(e.target.value)}}/> */}
                   {/* <button onClick={changeSensor1Value}>button sensor1</button> */}
                 </div>

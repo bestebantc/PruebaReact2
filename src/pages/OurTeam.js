@@ -16,7 +16,8 @@ const OurTeam = () => {
                         <div>
                             <div className="title">Nuestro equipo</div>
 
-                            <div className="text" style={{ marginTop: '10px' }}>Nuestro equipo de trabajo dedicado y apasionado está compuesto por expertos en programación y diseñadores creativos. Trabajamos juntos en un ambiente colaborativo y productivo paracombatir la contaminación en las principales fuentes de agua dulce.
+                            <div className="text" style={{ marginTop: '10px' }}>Nuestro equipo de trabajo dedicado y apasionado está compuesto por expertos en programación y diseñadores creativos. 
+                            Trabajamos juntos en un ambiente colaborativo y productivo para combatir la contaminación en las principales fuentes de agua dulce.
                                 Conoce más acerca de nuestro equipo de trabajo y sus perfiles individuales</div>
                         </div>
                     </div>
@@ -70,7 +71,7 @@ const OurTeam = () => {
                             <div className="teamDescription">
                                 <div className="teamTitle">Alejandra Alza Beltran</div>
                                 <div className="teamText">Soy Alejandra, hago parte del equipo de Control, estoy encargada de la
-                                    caracterización y realización del control de alto nivel del barco.
+                                    caracterización y realización del control de alto nivel del barco.
                                 </div>
                             </div>
                         </div>
@@ -79,8 +80,8 @@ const OurTeam = () => {
                             <div className="teamDescription">
                                 <div className="teamTitle">Nicolás Bolivar Merchan</div>
                                 <div className="teamText">Buenas soy Nicolas Bolívar, y para este semestre 2023-1 estoy participando  en el
-                                    proyecto makai ranger en el  área de control, en la cual estamos trabajando en que el barco siga de manera
-                                    correcta las trayectorias propuestas.
+                                    proyecto makai ranger en el  área de Electronica, en la cual estamos trabajando en que el barco siga de manera
+                                    correcta las trayectorias propuestas y uniendo los codigos.
                                 </div>
                             </div>
                         </div>
@@ -133,9 +134,10 @@ const OurTeam = () => {
                         <div className="teamMember">
                             <div className="teamIcon"><img src={require('../assets/images/FotoPaula.jpg')} alt="" /></div>
                             <div className="teamDescription">
-                                <div className="teamTitle">Paula Andresa Dias Pinzon</div>
-                                <div className="teamText">Hola, me llamo Paula, y hago parte del área de electrónica, estoy encargada
-                                    de definir los componentes electrónicos junto con sus especificaciones y de lograr el correcto funcionamiento del radiocontrol que moverá el barco.
+                                <div className="teamTitle">Paula Andrea Dias Pinzon</div>
+                                <div className="teamText">¡Hola! Soy Paula, hago parte del grupo del grupo control, 
+                                y apoyo en la parte del manejo del barco manualmente gracias al radiocontrol, 
+                                configurando tanto la dirección hacia la que éste se dirige, como la velocidad a la que va.
                                 </div>
                             </div>
                         </div>

@@ -86,10 +86,12 @@ const Home = () => {
                     </div>
 
                     <div className="spot title">
-                        Imagen Barco terminado
+                        <img src={require('../assets/images/FotobarcoTEAA.jpg')} width='70%' alt="" center/>
                     </div>
                     <div className="spot title">
-                        Imagen o Video Barco Funcionando
+                        <div className="spot title">
+                            <img src={require('../assets/images/FotoBarcoAgua.jpg')} width='40%' alt="" center/>
+                        </div>
                     </div>
                     <div className="spot homeText">
                         La basura que cae a los ríos es una de las principales causas del deterioro de la biodiversidad acuática en todo el mundo. 
@@ -100,7 +102,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer/>   
         </div>
     );
 };
